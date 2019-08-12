@@ -1,6 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World!\n");
+    printf("\\    /\\\n");
+    printf(" )  ( ')\n");
+    printf("(  /  )\n");
+    printf(" \\(__)|\n");
     return 0;
 }
+
+
+//        \    /\
+//         )  ( ')
+//        (  /  )
+//         \(__)|
