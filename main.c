@@ -1,6 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World!\n");
+    printf("25\nbiper94");
     return 0;
 }
