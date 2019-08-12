@@ -1,6 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    printf("|\\_/|\n");
+    printf("|q p|   /}\n");
+    printf("( 0 )\"\"\"\\\n");
+    printf("|\"^\"`    |\n");
+    printf("||_/=\\\\__|");
 }
+
+
+//                |\_/|
+//                |q p|   /}
+//                ( 0 )"""\
+//                |"^"`    |
+//                ||_/=\\__|
