@@ -2,10 +2,7 @@
 
 int main() {
 	int l, r;
-	while (1) {
-		scanf("%d %d", &l, &r);
-		if (l == 0 && r == 0) break;
-
+	while (scanf("%d %d", &l, &r) != EOF) {
 		printf("%d\n", l + r);
 	}
 
