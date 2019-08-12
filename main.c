@@ -8,7 +8,7 @@ int main() {
 	for (i  = 0; i < T; i++) {
 		int l, r;
 		scanf("%d %d", &l, &r);
-		printf("Case #%d: %d\n", i + 1, l + r);
+		printf("Case #%d: %d + %d = %d\n", i + 1, l, r, l + r);
 	}
 
     return 0;
