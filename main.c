@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-	int size;
-	scanf("%d", &size);
+	int size = 9;
+	// scanf("%d", &size);
 
 	int* arr = (int*)malloc(size * sizeof(int));
 
@@ -12,16 +12,15 @@ int main() {
 		scanf("%d", arr + i);
 	}
 
-	int min = arr[0], max = arr[0];
-	for (i = 0; i < size; i++) {
-		if (arr[i] < min) {
-			min = arr[i];
-		} else if (arr[i] > max) {
+	int max = arr[0], maxCnt = 0;
+	for (i = 1; i < size; i++) {
+		if (arr[i] > max) {
 			max = arr[i];
+			maxCnt = i;
 		}
 	}
 
-	printf("%d %d", min, max);
+	printf("%d\n%d", max, maxCnt + 1);
 
 
 
