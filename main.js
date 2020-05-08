@@ -11,39 +11,41 @@ const input = [];
 // 	console.log(solution(n))
 // }
 
-console.log(solution(5))
-
-
-function solution(n) {
-	var rst = "1";
-	for (let i = 2; i <= n; i++) {
-		// i = 1
-		const r = calc(rst)
-		console.log(i, r)
-		rst = r
-	}
-
-	return rst
-}
-
-function calc(str) {
-	var rst = "";
-	const buffer = [null, null] // number, count
-	const splited = str.split('')
-	splited.forEach(number => {
-		if (buffer[0] == number) {
-			++buffer[1]
-		} else {
-				if (buffer[0] && buffer[1]) {
-					rst += `${buffer[0]}${buffer[1]}`
-				}
-				buffer[0] = number
-				buffer[1] = 1
-		}
+function solution(bishops) {
+	var set = new Set()
+	bishops.forEach(bs => {
+		set.add(bs)
+		func(set, bs, 1, 1)
+		func(set, bs, 1, -1)
+		func(set, bs, -1, 1)
+		func(set, bs, -1, -1)
 	})
 
-	return rst + `${buffer[0]}${buffer[1]}`
+	return 64 - set.size
+}
+
+function func(set, origin, dX, dY) {
+	const next = getPosition(origin, dX, dY)
+	if (next != null) {
+		set.add(next)
+		return func(set, next, dX, dY)
+	}
+
+	return set
 }
 
 
+function getPosition(origin, dX, dY) {
+	const x = origin[0].charCodeAt(0) + dX
+	const y = parseInt(origin[1]) + dY
 
+	if (x < 'A'.charCodeAt(0) || x > 'H'.charCodeAt(0)) {
+		return null
+	}
+
+	if (y < 1 || y > 8) {
+		return null
+	}
+
+	return String.fromCharCode(x) + y
+}
