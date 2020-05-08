@@ -1,35 +1,48 @@
 const readline = require('readline');
 const input = [];
 
-readline.createInterface(process.stdin, process.stdout)
-	.on('line', line => input.push(line.trim()))
-	.on('close', main);
+// readline.createInterface(process.stdin, process.stdout)
+// 	.on('line', line => input.push(line.trim()))
+// 	.on('close', main);
+//
+//
+// function main() {
+// 	const n = parseInt(input[0])
+// 	console.log(solution(n))
+// }
+
+console.log(solution(5))
 
 
-function main() {
-	const arr = JSON.parse(input[0])
-	console.log(solution(arr))
+function solution(n) {
+	var rst = "1";
+	for (let i = 2; i <= n; i++) {
+		// i = 1
+		const r = calc(rst)
+		console.log(i, r)
+		rst = r
+	}
+
+	return rst
 }
 
-
-function solution(v) {
-	// v = // [[1, 4], [3, 4], [3, 10]]
-	var rstX = 0;
-	var rstY = 0;
-	v.forEach((em) => {
-
-		const x = em[0]
-		const y = em[1]
-
-		if (!rstX && v.filter(e => e[0] == x).length === 1) {
-			rstX = x
-		}
-
-		if (!rstY && v.filter(e => e[1] == y).length === 1) {
-			rstY = y
+function calc(str) {
+	var rst = "";
+	const buffer = [null, null] // number, count
+	const splited = str.split('')
+	splited.forEach(number => {
+		if (buffer[0] == number) {
+			++buffer[1]
+		} else {
+				if (buffer[0] && buffer[1]) {
+					rst += `${buffer[0]}${buffer[1]}`
+				}
+				buffer[0] = number
+				buffer[1] = 1
 		}
 	})
-	return [rstX, rstY]
+
+	return rst + `${buffer[0]}${buffer[1]}`
 }
 
 
